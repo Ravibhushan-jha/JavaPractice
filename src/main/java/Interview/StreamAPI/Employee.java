@@ -1,6 +1,6 @@
 package Interview.StreamAPI;
 
-public class Employee {
+public class Employee implements Comparable{
     int id;
 
     String name;
@@ -71,5 +71,10 @@ public class Employee {
                 +", Department : "+department
                 +", Year Of Joining : "+yearOfJoining
                 +", Salary : "+salary;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }

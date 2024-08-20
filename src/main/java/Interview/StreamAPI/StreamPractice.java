@@ -46,7 +46,8 @@ public class StreamPractice {
 //        firstRepeatedCharacter();
 //        duplicateCharactersInString();
 //        secondRepeatedCharacter();
-        reverseString();
+ //       reverseString();
+
 
     }
 
@@ -217,6 +218,9 @@ public class StreamPractice {
                 .map(Object::toString)
                 .collect(joining());
 
+
+
+
        // System.out.println("Reveres Data:"+ revesredData);
 
 
@@ -273,7 +277,8 @@ public class StreamPractice {
         String word = "rohttoh";
         System.out.println ("First Repeating Chaacter : "+Arrays.stream (word.split (""))
                 .filter (str -> word.indexOf (str) != word.lastIndexOf (str))
-                .findFirst ().orElse (""));
+                        .findFirst()
+                .orElse (""));
     }
 
     private static void secondRepeatedCharacter() {

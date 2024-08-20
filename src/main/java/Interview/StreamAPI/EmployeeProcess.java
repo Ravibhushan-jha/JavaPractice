@@ -10,7 +10,7 @@ public class EmployeeProcess {
         List<Employees> employeesList = new ArrayList<>();
         employeesList.add(new Employees("Ravi",12345678L,1,2000,"IT"));
         employeesList.add(new Employees("Shubham",145465678L,2,2000,"GK"));
-        employeesList.add(new Employees("Ravijha",12345678L,3,4000,"US"));
+        employeesList.add(new Employees("Ravi",12345678L,3,4000,"US"));
         employeesList.add(new Employees("Bob",123453678L,4,2050,"WSIT"));
         employeesList.add(new Employees("Alice",12545678L,5,1000,"WPB"));
         employeesList.add(new Employees("MArtin",1765675678L,6,9000,"MSS"));
@@ -33,17 +33,19 @@ public class EmployeeProcess {
         employeeList.add(new Employee(244, "Nicolus Den", 24, "Male", "Sales And Marketing", 2017, 10700.5));
         employeeList.add(new Employee(255, "Ali Baig", 23, "Male", "Infrastructure", 2018, 12700.0));
         employeeList.add(new Employee(266, "Sanvi Pandey", 26, "Female", "Product Development", 2015, 28900.0));
-        employeeList.add(new Employee(277, "Anuj Chettiar", 31, "Male", "Product Development", 2012, 35700.0));
+        employeeList.add(new Employee(277, "Ali Baig", 31, "Male", "Product Development", 2012, 35700.0));
 
 //        allDepartmentList(employeeList);
 //        ListOfMaleEndFemaleEmp(employeeList);
 //        avrageAgeOfMaleAndFemale(employeeList);
 //        highestPaidEmployee(employeeList);
 //        joineddate(employeeList);
-        noOfEmployeeByDept(employeeList);
-        avrageSalaryByDept(employeeList);
-        findYoungEmpinDept(employeeList);
-        findLowestPaidEmpinDept(employeeList);
+//        noOfEmployeeByDept(employeeList);
+//        avrageSalaryByDept(employeeList);
+//        findYoungEmpinDept(employeeList);
+//        findLowestPaidEmpinDept(employeeList);
+//        findEmployeeHigherAge(employeeList);
+        sortEmployeeBasedOnNameAndSalaryForDuplicateName(employeeList);
     }
 
     public static void allDepartmentList(List<Employee> employeeList){
@@ -129,6 +131,27 @@ public class EmployeeProcess {
         System.out.println(" Data : " + youngestEmpInProdDept);
 
 
+    }
+
+    public static void findEmployeeHigherAge(List<Employee> employeeList){
+
+       List<Employee>  sortEmpAge = employeeList.stream()
+               .sorted((e1,e2) -> Integer.compare(e2.getAge(),e1.getAge()))
+               .collect(Collectors.toList());
+
+       System.out.println(sortEmpAge);
+
+
+    }
+
+
+    public static void sortEmployeeBasedOnNameAndSalaryForDuplicateName(List<Employee> empList){
+
+         empList.stream()
+                .sorted(Comparator.comparing(Employee::getName)
+                        .thenComparing(Employee::getAge))
+                 .collect(Collectors.toList())
+                 .forEach(System.out::println);
     }
 
 }
